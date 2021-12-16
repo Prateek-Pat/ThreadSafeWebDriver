@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="4" guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="methods">
+  <test name="Test(failed)" parallel="methods">
+    <classes>
+      <class name="com.nopcommerce.test.TestCase">
+        <methods>
+          <include name="TC_02"/>
+          <include name="AppLaunch"/>
+          <include name="TC_01"/>
+          <include name="TC_03"/>
+          <include name="TC_04"/>
+        </methods>
+      </class> <!-- com.nopcommerce.test.TestCase -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
