@@ -1,7 +1,52 @@
 https://www.geeksforgeeks.org/java-lang-threadlocal-class-java/
 
+http://tutorials.jenkov.com/java-concurrency/threadlocal.html
+
 
 
 The Java ThreadLocal class enables you to create variables that can only be read and written by the same thread.
 Thus, even if two threads are executing the same code, and the code has a reference to the same ThreadLocal variable
 the two threads cannot see each other's ThreadLocal variables
+
+
+Creating a ThreadLocal
+You create a ThreadLocal instance just like you create any other Java object - via the new operator. Here is an example that shows how to create a ThreadLocal variable:
+
+private ThreadLocal threadLocal = new ThreadLocal();	
+
+
+This only needs to be done once per thread. Multiple threads can now get and set values inside this ThreadLocal, and each thread will only see the value it set itself.
+
+Set ThreadLocal Value
+Once a ThreadLocal has been created you can set the value to be stored in it using its set() method.
+
+threadLocal.set("A thread local value");
+
+Generic ThreadLocal
+You can create a ThreadLocal with a generic type. Using a generic type only objects of the generic type can be set as value on the ThreadLocal. Additionally, you do not have to typecast the value returned by get(). Here is a generic ThreadLocal example:
+
+private ThreadLocal<String> myThreadLocal = new ThreadLocal<String>();
+Now you can only store strings in the ThreadLocal instance. Additionally, you do not need to typecast the value obtained from the ThreadLocal:
+
+myThreadLocal.set("Hello ThreadLocal");
+
+String threadLocalValue = myThreadLocal.get();
+
+Get ThreadLocal Value
+You read the value stored in a ThreadLocal using its get() method. Here is an example obtaining the value stored inside a Java ThreadLocal:
+
+String threadLocalValue = (String) threadLocal.get();
+Remove ThreadLocal Value
+It is possible to remove a value set in a ThreadLocal variable. You remove a value by calling the ThreadLocal remove() method. Here is an example of removing the value set on a Java ThreadLocal:
+
+threadLocal.remove();
+
+
+Points:
+
+1) ThreadLocal class help us in creating the variable that can read and write the same thread
+2) Creating ThreadLocal variable
+3) Default Value of threadLocal variable
+4) Get, Set & Remove Method of ThreadLocal
+5) Initial ThreadLocal variable 
+6) Inherit ThreadLocal variable 
